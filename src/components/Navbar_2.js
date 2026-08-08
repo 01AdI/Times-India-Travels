@@ -192,7 +192,7 @@ export default function Navbar_2() {
               ? `
                 min-h-[68px]
 
-                bg-[#124d56]/95
+                bg-[#F2FAFB]/95
                 backdrop-blur-xl
 
                 border-white/10
@@ -282,7 +282,7 @@ export default function Navbar_2() {
           {/* ABOUT */}
 
           <DesktopNavLink
-            to="/about"
+            to="/About_Us"
             label="About Us"
             isScrolled={isScrolled}
           />
@@ -324,7 +324,7 @@ export default function Navbar_2() {
                 ${
                   isScrolled
                     ? `
-                      text-white/90
+                      text-[#124d56]/90
                       hover:bg-white/10
                     `
                     : `
@@ -584,7 +584,7 @@ export default function Navbar_2() {
           {/* CAR RENTAL */}
 
           <DesktopNavLink
-            to="/car-rental"
+            to="/CarRental"
             label="Car Rental"
             isScrolled={isScrolled}
           />
@@ -593,7 +593,7 @@ export default function Navbar_2() {
           {/* BLOG */}
 
           <DesktopNavLink
-            to="/blog"
+            to="/Blog"
             label="Blog"
             isScrolled={isScrolled}
           />
@@ -641,8 +641,8 @@ export default function Navbar_2() {
                 isScrolled
 
                   ? `
-                    border-white/15
-                    text-white/90
+                    border-[#124d56]/50
+                    text-[#124d56]
 
                     hover:bg-white/10
                   `
@@ -740,11 +740,11 @@ export default function Navbar_2() {
               ${
                 isScrolled
                   ? `
-                    text-white
+                    text-[#124d56]
                     hover:bg-white/10
                   `
                   : `
-                    text-white
+                    text-[#124d56]
                     hover:bg-white/10
                   `
               }
@@ -817,7 +817,7 @@ export default function Navbar_2() {
           />
 
           <MobileNavLink
-            to="/about"
+            to="/About_Us"
             label="About Us"
           />
 
@@ -827,12 +827,12 @@ export default function Navbar_2() {
           />
 
           <MobileNavLink
-            to="/car-rental"
+            to="/CarRental"
             label="Car Rental"
           />
 
           <MobileNavLink
-            to="/blog"
+            to="/Blog"
             label="Blog"
           />
 
@@ -916,8 +916,8 @@ function DesktopNavLink({
         ${
           isScrolled
             ? `
-              text-white/90
-              hover:bg-white/10
+              text-[#124d56]/90
+              hover:bg-[#124d56]/30
             `
             : `
               text-white
