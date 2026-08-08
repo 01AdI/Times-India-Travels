@@ -1,20 +1,37 @@
-import Home_HeroSection from "./components/HeroSection_home";
-import Home_approved_by_govSection from "./components/Home_approved_by_govSection";
-import Home_TimeIndia_WelcomeSection from "./components/Home_TimeIndia_WelcomeSection";
-import Home_TripAdvisor from "./components/Home_TripAdvisor";
-import Home_WhyChooseUs from "./components/Home_WhyChooseUs";
-import Home_WhyChooseUs_2 from "./components/Home_WhyChooseUs_2";
-import Home_ClientReview from "./components/Home_ClientReview";
-import Home_ClientReview_2 from "./components/Home_ClientReview_2";
-import Home_Client_Testimonials from "./components/Home_Client_Testimonial";
-import Home_Quote from "./components/Home_Quote";
-import Home_Travel_Grid from "./components/Home_Travel_Grid";
-import Home_Qautation_form from "./components/Home_Qautation_form";
-import Home_Qautation_form_2 from "./components/Home_Qautation_form_2";
-import Footer from "./components/Footer";
+import Home_HeroSection from "./components/home_components/HeroSection_home";
+import Home_approved_by_govSection from "./components/home_components/Home_approved_by_govSection";
+import Home_TimeIndia_WelcomeSection from "./components/home_components/Home_TimeIndia_WelcomeSection";
+import Home_TripAdvisor from "./components/home_components/Home_TripAdvisor";
+import Home_WhyChooseUs from "./components/home_components/Home_WhyChooseUs";
+import Home_WhyChooseUs_2 from "./components/home_components/Home_WhyChooseUs_2";
+import Home_ClientReview from "./components/home_components/Home_ClientReview";
+import Home_ClientReview_2 from "./components/home_components/Home_ClientReview_2";
+import Home_Client_Testimonials from "./components/home_components/Home_Client_Testimonial";
+import Home_Quote from "./components/home_components/Home_Quote";
+import Home_Travel_Grid from "./components/home_components/Home_Travel_Grid";
+import Home_Qautation_form from "./components/home_components/Home_Qautation_form";
+import Home_Qautation_form_2 from "./components/home_components/Home_Qautation_form_2";
 
+import { useLocation } from "react-router";
+import { useEffect } from "react";
 
 export default function Homes(){
+    const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash === "#quatation") {
+      const element = document.getElementById("quatation");
+
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }, 100);
+      }
+    }
+  }, [location]);
 
     return(
         <>
