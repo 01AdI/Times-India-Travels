@@ -1,14 +1,14 @@
 export default function Home_Travel_Grid() {
   const categories = [
     {
-      id: "tours",
+      id: "Most-Popular",
       categoryTitle: "Popular Tours",
       tagLine: "Our Most Loved Experiences",
       hoverDescription:
         "Discover India's most loved itineraries, handpicked by our travel experts for unforgettable journeys.",
       buttonText: "Explore Tours",
       image:
-        "https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1600&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=1600&auto=format&fit=crop",
     },
     {
       id: "destinations",
@@ -67,7 +67,7 @@ export default function Home_Travel_Grid() {
             // makes "click a card, jump to that section" work.
             <a
               key={index}
-              href={`#${category.id}`}
+              href={`/Tour/${category.id}`}
               aria-label={`Go to ${category.categoryTitle}`}
               className="group relative h-[520px] overflow-hidden rounded-3xl cursor-pointer block focus:outline-none focus-visible:ring-4 focus-visible:ring-[#F58634]/50"
             >

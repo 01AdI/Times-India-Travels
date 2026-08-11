@@ -1,7 +1,7 @@
-import { useState, Fragment } from "react";
+import { useState } from "react";
 
 /* ============================================================
-   01. CATEGORIES
+   CATEGORIES
 ============================================================ */
 
 const CATEGORIES = [
@@ -14,7 +14,7 @@ const CATEGORIES = [
 ];
 
 /* ============================================================
-   02. FEATURED STORY DATA
+   FEATURED STORY
 ============================================================ */
 
 const FEATURED = {
@@ -30,7 +30,7 @@ const FEATURED = {
 };
 
 /* ============================================================
-   03. JOURNAL POSTS DATA
+   JOURNAL POSTS
 ============================================================ */
 
 const POSTS = [
@@ -109,8 +109,7 @@ const POSTS = [
     number: "07",
     category: "Rajasthan",
     location: "Delhi · Agra · Jaipur",
-    title:
-      "Planning the Golden Triangle: Delhi, Agra, Jaipur in 7 Days",
+    title: "Planning the Golden Triangle: Delhi, Agra, Jaipur in 7 Days",
     shortExcerpt:
       "The most-booked route in India, mapped day by day — including the detour most first-time visitors skip.",
     expandedText:
@@ -122,7 +121,7 @@ const POSTS = [
 ];
 
 /* ============================================================
-   04. META ROW
+   META ROW
 ============================================================ */
 
 function MetaRow({ date, readTime, light = false }) {
@@ -156,65 +155,7 @@ function MetaRow({ date, readTime, light = false }) {
 }
 
 /* ============================================================
-   05. CATEGORY FILTER
-============================================================ */
-
-function CategoryFilter({ active, onChange }) {
-  return (
-    <div
-      className="
-        mb-12
-        flex
-        flex-wrap
-        gap-2
-        md:mb-14
-      "
-    >
-      {CATEGORIES.map((category) => (
-        <button
-          key={category}
-          type="button"
-          onClick={() => onChange(category)}
-          className={`
-            cursor-pointer
-            rounded-full
-            border
-            px-5
-            py-2
-            font-['Inter']
-            text-[12px]
-            font-medium
-            transition-all
-            duration-300
-
-            ${
-              active === category
-                ? `
-                  border-[#124D56]
-                  bg-[#124D56]
-                  text-white
-                  shadow-[0_5px_18px_rgba(18,77,86,0.15)]
-                `
-                : `
-                  border-[#124D56]/15
-                  bg-transparent
-                  text-[#124D56]/65
-                  hover:border-[#124D56]/35
-                  hover:bg-white
-                  hover:text-[#0B3C49]
-                `
-            }
-          `}
-        >
-          {category}
-        </button>
-      ))}
-    </div>
-  );
-}
-
-/* ============================================================
-   06. FEATURED STORY
+   FEATURED STORY
 ============================================================ */
 
 function FeaturedStory() {
@@ -225,7 +166,7 @@ function FeaturedStory() {
         relative
         mb-14
         overflow-hidden
-        rounded-[30px]
+        rounded-[32px]
         bg-[#0B3C49]
         shadow-[0_25px_70px_rgba(11,60,73,0.12)]
       "
@@ -260,8 +201,6 @@ function FeaturedStory() {
             to-black/10
           "
         />
-
-        {/* BOTTOM BLACK GRADIENT */}
 
         <div
           className="
@@ -302,7 +241,7 @@ function FeaturedStory() {
             rounded-full
             border
             border-white/25
-            bg-[#124D56]/35
+            bg-black/30
             backdrop-blur-md
           "
         >
@@ -438,18 +377,14 @@ function FeaturedStory() {
               light
             />
 
-            <button
-              type="button"
+            <div
               className="
-                group/story
                 inline-flex
                 w-fit
-                cursor-pointer
                 items-center
                 gap-3
                 border-b
                 border-white/30
-                bg-transparent
                 pb-2
                 font-['Inter']
                 text-[11px]
@@ -459,7 +394,7 @@ function FeaturedStory() {
                 text-white
                 transition-all
                 duration-500
-                hover:border-[#F58634]
+                group-hover:border-[#F58634]
               "
             >
               <span>Explore story</span>
@@ -475,12 +410,12 @@ function FeaturedStory() {
                   bg-[#F58634]
                   transition-transform
                   duration-500
-                  group-hover/story:translate-x-2
+                  group-hover:translate-x-2
                 "
               >
                 →
               </span>
-            </button>
+            </div>
           </div>
         </div>
       </div>
@@ -489,7 +424,7 @@ function FeaturedStory() {
 }
 
 /* ============================================================
-   07. JOURNAL CARD
+   JOURNAL CARD
 ============================================================ */
 
 function JournalCard({ post, expanded, onToggle }) {
@@ -502,21 +437,15 @@ function JournalCard({ post, expanded, onToggle }) {
         transition-all
         duration-700
         ease-[cubic-bezier(0.22,1,0.36,1)]
-
         ${
           expanded
-            ? `
-              min-h-[560px]
-              bg-[#0B3C49]
-              shadow-[0_30px_80px_rgba(11,60,73,0.22)]
-            `
-            : `
-              bg-transparent
-              shadow-[0_8px_30px_rgba(11,60,73,0.04)]
-            `
+            ? "min-h-[560px] bg-[#0B3C49] shadow-[0_30px_80px_rgba(11,60,73,0.22)]"
+            : "bg-transparent shadow-[0_8px_30px_rgba(11,60,73,0.04)]"
         }
       `}
     >
+      {/* IMAGE AREA */}
+
       <div
         onClick={onToggle}
         className={`
@@ -526,7 +455,6 @@ function JournalCard({ post, expanded, onToggle }) {
           transition-all
           duration-700
           ease-[cubic-bezier(0.22,1,0.36,1)]
-
           ${
             expanded
               ? "min-h-[560px] rounded-[28px]"
@@ -534,9 +462,7 @@ function JournalCard({ post, expanded, onToggle }) {
           }
         `}
       >
-        {/* ==================================================
-            IMAGE
-        ================================================== */}
+        {/* IMAGE */}
 
         <img
           src={`https://picsum.photos/seed/${post.seed}/1400/1000`}
@@ -550,7 +476,6 @@ function JournalCard({ post, expanded, onToggle }) {
             transition-transform
             duration-[1200ms]
             ease-out
-
             ${
               expanded
                 ? "scale-[1.04] group-hover:scale-[1.07]"
@@ -560,9 +485,7 @@ function JournalCard({ post, expanded, onToggle }) {
           loading="lazy"
         />
 
-        {/* ==================================================
-            BLACK OVERLAY
-        ================================================== */}
+        {/* BLACK OVERLAY */}
 
         <div
           className={`
@@ -570,28 +493,15 @@ function JournalCard({ post, expanded, onToggle }) {
             inset-0
             transition-all
             duration-700
-
             ${
               expanded
-                ? `
-                  bg-gradient-to-t
-                  from-black/95
-                  via-black/55
-                  to-black/5
-                `
-                : `
-                  bg-gradient-to-t
-                  from-black/75
-                  via-black/20
-                  to-transparent
-                `
+                ? "bg-gradient-to-t from-black/95 via-black/55 to-black/5"
+                : "bg-gradient-to-t from-black/75 via-black/20 to-transparent"
             }
           `}
         />
 
-        {/* ==================================================
-            EXPANDED SIDE OVERLAY
-        ================================================== */}
+        {/* EXPANDED SIDE OVERLAY */}
 
         <div
           className={`
@@ -603,14 +513,11 @@ function JournalCard({ post, expanded, onToggle }) {
             to-transparent
             transition-opacity
             duration-700
-
             ${expanded ? "opacity-100" : "opacity-0"}
           `}
         />
 
-        {/* ==================================================
-            NUMBER
-        ================================================== */}
+        {/* NUMBER */}
 
         <div
           className="
@@ -625,7 +532,7 @@ function JournalCard({ post, expanded, onToggle }) {
             rounded-full
             border
             border-white/25
-            bg-[#124D56]/35
+            bg-black/30
             backdrop-blur-md
           "
         >
@@ -640,9 +547,7 @@ function JournalCard({ post, expanded, onToggle }) {
           </span>
         </div>
 
-        {/* ==================================================
-            CATEGORY
-        ================================================== */}
+        {/* CATEGORY */}
 
         <div
           className="
@@ -652,7 +557,7 @@ function JournalCard({ post, expanded, onToggle }) {
             rounded-full
             border
             border-white/20
-            bg-[#0B3C49]/30
+            bg-black/30
             px-3.5
             py-2
             backdrop-blur-md
@@ -672,9 +577,7 @@ function JournalCard({ post, expanded, onToggle }) {
           </span>
         </div>
 
-        {/* ==================================================
-            COLLAPSED CONTENT
-        ================================================== */}
+        {/* COLLAPSED CONTENT */}
 
         <div
           className={`
@@ -684,7 +587,6 @@ function JournalCard({ post, expanded, onToggle }) {
             p-5
             transition-all
             duration-500
-
             ${
               expanded
                 ? "translate-y-5 opacity-0"
@@ -722,9 +624,7 @@ function JournalCard({ post, expanded, onToggle }) {
           </h3>
         </div>
 
-        {/* ==================================================
-            EXPANDED CONTENT
-        ================================================== */}
+        {/* EXPANDED CONTENT */}
 
         <div
           className={`
@@ -736,7 +636,6 @@ function JournalCard({ post, expanded, onToggle }) {
             lg:p-12
             transition-all
             duration-700
-
             ${
               expanded
                 ? "translate-y-0 opacity-100"
@@ -834,7 +733,7 @@ function JournalCard({ post, expanded, onToggle }) {
                 onClick={(e) => {
                   e.stopPropagation();
 
-                  // Replace this with your actual blog route.
+                  // Replace this with your actual route.
                   window.location.href = "#";
                 }}
                 className="
@@ -883,9 +782,7 @@ function JournalCard({ post, expanded, onToggle }) {
           </div>
         </div>
 
-        {/* ==================================================
-            CLOSE BUTTON
-        ================================================== */}
+        {/* CLOSE BUTTON */}
 
         {expanded && (
           <button
@@ -907,7 +804,7 @@ function JournalCard({ post, expanded, onToggle }) {
               rounded-full
               border
               border-white/20
-              bg-black/30
+              bg-black/40
               font-['Inter']
               text-lg
               font-light
@@ -916,7 +813,7 @@ function JournalCard({ post, expanded, onToggle }) {
               transition-all
               duration-300
               hover:rotate-90
-              hover:bg-black/50
+              hover:bg-black/70
             "
             aria-label="Close story"
           >
@@ -929,357 +826,36 @@ function JournalCard({ post, expanded, onToggle }) {
 }
 
 /* ============================================================
-   08. INLINE ENQUIRY CARD
-============================================================ */
-
-function InlineEnquiryCard() {
-  const [sent, setSent] = useState(false);
-
-  const [values, setValues] = useState({
-    name: "",
-    email: "",
-    phone: "",
-  });
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSent(true);
-  };
-
-  return (
-    <article
-      data-aos="fade-left"
-      className="
-        relative
-        overflow-hidden
-        rounded-[28px]
-        bg-[#0B3C49]
-        p-7
-        text-white
-        shadow-[0_20px_60px_rgba(11,60,73,0.12)]
-        md:p-10
-      "
-    >
-      {/* ==================================================
-          DECORATIVE GLOWS
-      ================================================== */}
-
-      <div
-        className="
-          pointer-events-none
-          absolute
-          -right-20
-          -top-20
-          h-52
-          w-52
-          rounded-full
-          bg-[#124D56]/40
-          blur-3xl
-        "
-      />
-
-      <div
-        className="
-          pointer-events-none
-          absolute
-          -bottom-20
-          -left-20
-          h-44
-          w-44
-          rounded-full
-          bg-[#F58634]/10
-          blur-3xl
-        "
-      />
-
-      {sent ? (
-        /* ==================================================
-           SUCCESS STATE
-        ================================================== */
-
-        <div
-          className="
-            relative
-            flex
-            min-h-[420px]
-            flex-col
-            items-center
-            justify-center
-            text-center
-          "
-        >
-          <div
-            className="
-              mb-5
-              flex
-              h-16
-              w-16
-              items-center
-              justify-center
-              rounded-full
-              border
-              border-[#F58634]/40
-              bg-[#F58634]/10
-            "
-          >
-            <span className="text-2xl text-[#F58634]">
-              ✓
-            </span>
-          </div>
-
-          <p
-            className="
-              font-['Fraunces']
-              text-2xl
-            "
-          >
-            Got it — thank you.
-          </p>
-
-          <p
-            className="
-              mt-2
-              max-w-[250px]
-              font-['Inter']
-              text-sm
-              leading-relaxed
-              text-white/50
-            "
-          >
-            We'll call you within one business day.
-          </p>
-        </div>
-      ) : (
-        <>
-          {/* ==================================================
-              TEXT
-          ================================================== */}
-
-          <div className="relative">
-            <span
-              className="
-                font-['Inter']
-                text-[10px]
-                font-semibold
-                uppercase
-                tracking-[0.22em]
-                text-[#F58634]
-              "
-            >
-              Plan a trip like this
-            </span>
-
-            <p
-              className="
-                mt-4
-                font-['Fraunces']
-                text-[clamp(1.7rem,3vw,2.2rem)]
-                leading-[1.05]
-              "
-            >
-              Want this itinerary,
-              <br />
-              minus the planning?
-            </p>
-
-            <p
-              className="
-                mt-4
-                max-w-md
-                font-['Inter']
-                text-[13px]
-                leading-[1.7]
-                text-white/55
-              "
-            >
-              Tell us where you want to go. We'll take
-              care of the details.
-            </p>
-          </div>
-
-          {/* ==================================================
-              FORM
-          ================================================== */}
-
-          <form
-            onSubmit={handleSubmit}
-            className="
-              relative
-              mt-10
-              space-y-3
-            "
-          >
-            {/* NAME */}
-
-            <input
-              type="text"
-              required
-              placeholder="Name"
-              value={values.name}
-              onChange={(e) =>
-                setValues((value) => ({
-                  ...value,
-                  name: e.target.value,
-                }))
-              }
-              className="
-                w-full
-                rounded-xl
-                border
-                border-white/10
-                bg-white/[0.05]
-                px-4
-                py-3.5
-                font-['Inter']
-                text-sm
-                text-white
-                placeholder-white/30
-                outline-none
-                transition
-                focus:border-[#F58634]/60
-                focus:bg-white/[0.07]
-              "
-            />
-
-            {/* EMAIL */}
-
-            <input
-              type="email"
-              required
-              placeholder="Email"
-              value={values.email}
-              onChange={(e) =>
-                setValues((value) => ({
-                  ...value,
-                  email: e.target.value,
-                }))
-              }
-              className="
-                w-full
-                rounded-xl
-                border
-                border-white/10
-                bg-white/[0.05]
-                px-4
-                py-3.5
-                font-['Inter']
-                text-sm
-                text-white
-                placeholder-white/30
-                outline-none
-                transition
-                focus:border-[#F58634]/60
-                focus:bg-white/[0.07]
-              "
-            />
-
-            {/* PHONE */}
-
-            <input
-              type="tel"
-              required
-              placeholder="Phone"
-              value={values.phone}
-              onChange={(e) =>
-                setValues((value) => ({
-                  ...value,
-                  phone: e.target.value,
-                }))
-              }
-              className="
-                w-full
-                rounded-xl
-                border
-                border-white/10
-                bg-white/[0.05]
-                px-4
-                py-3.5
-                font-['Inter']
-                text-sm
-                text-white
-                placeholder-white/30
-                outline-none
-                transition
-                focus:border-[#F58634]/60
-                focus:bg-white/[0.07]
-              "
-            />
-
-            {/* SUBMIT */}
-
-            <button
-              type="submit"
-              className="
-                group
-                mt-2
-                flex
-                w-full
-                cursor-pointer
-                items-center
-                justify-center
-                gap-3
-                rounded-xl
-                bg-[#F58634]
-                py-3.5
-                font-['Inter']
-                text-sm
-                font-semibold
-                text-white
-                transition-all
-                duration-300
-                hover:bg-[#E67625]
-                hover:shadow-[0_10px_30px_rgba(245,134,52,0.25)]
-              "
-            >
-              <span>Get a callback</span>
-
-              <span
-                className="
-                  transition-transform
-                  duration-300
-                  group-hover:translate-x-1
-                "
-              >
-                →
-              </span>
-            </button>
-          </form>
-        </>
-      )}
-    </article>
-  );
-}
-
-/* ============================================================
-   09. MAIN BLOG JOURNAL
+   MAIN COMPONENT
 ============================================================ */
 
 export default function BlogJournal() {
   const [active, setActive] = useState("All");
 
+  // Controls which individual journal card expands.
   const [expandedPost, setExpandedPost] = useState(null);
 
-  /* ==========================================================
-     FILTER POSTS
-  ========================================================== */
+  /* ============================================================
+     FILTERED POSTS
+  ============================================================ */
 
   const visiblePosts =
     active === "All"
       ? POSTS
       : POSTS.filter((post) => post.category === active);
 
-  /* ==========================================================
+  /* ============================================================
      CATEGORY CHANGE
-  ========================================================== */
+  ============================================================ */
 
   const handleCategoryChange = (category) => {
     setActive(category);
     setExpandedPost(null);
   };
 
-  /* ==========================================================
+  /* ============================================================
      CARD TOGGLE
-  ========================================================== */
+  ============================================================ */
 
   const handleCardToggle = (number) => {
     setExpandedPost((current) =>
@@ -1288,33 +864,16 @@ export default function BlogJournal() {
   };
 
   return (
-    <section
-      className="
-        w-full
-        bg-[#F2FAFB]
-        px-5
-        py-20
-        md:px-8
-        md:py-28
-        lg:px-12
-        lg:py-32
-      "
-    >
-      <div className="mx-auto max-w-[1400px]">
+    <section className="bg-[#F2FAFB] px-5 py-20 md:px-10 lg:px-16 lg:py-28">
+      <div className="mx-auto max-w-7xl">
 
         {/* ==================================================
-            01 — SECTION INTRO
+            SECTION INTRO
         ================================================== */}
 
         <div className="mb-12 max-w-2xl md:mb-14">
           <div className="flex items-center gap-3">
-            <span
-              className="
-                h-px
-                w-8
-                bg-[#F58634]
-              "
-            />
+            <span className="h-px w-8 bg-[#F58634]" />
 
             <span
               className="
@@ -1343,7 +902,6 @@ export default function BlogJournal() {
           >
             Notes from the road,
             <br />
-
             <span className="text-[#124D56]/40">
               before you book it.
             </span>
@@ -1359,29 +917,72 @@ export default function BlogJournal() {
               text-[#124D56]/60
             "
           >
-            Field-tested routes, honest timing advice, and
-            the details our travellers wished someone had
-            told them first.
+            Field-tested routes, honest timing advice, and the details our
+            travellers wished someone had told them first.
           </p>
         </div>
 
         {/* ==================================================
-            02 — CATEGORY FILTER
+            CATEGORY FILTER
         ================================================== */}
 
-        <CategoryFilter
-          active={active}
-          onChange={handleCategoryChange}
-        />
+        <div
+          className="
+            mb-12
+            flex
+            flex-wrap
+            gap-2
+            md:mb-14
+          "
+        >
+          {CATEGORIES.map((cat) => (
+            <button
+              key={cat}
+              type="button"
+              onClick={() => handleCategoryChange(cat)}
+              className={`
+                cursor-pointer
+                rounded-full
+                border
+                px-5
+                py-2
+                font-['Inter']
+                text-[12px]
+                font-medium
+                transition-all
+                duration-300
+                ${
+                  active === cat
+                    ? `
+                      border-[#124D56]
+                      bg-[#124D56]
+                      text-white
+                      shadow-[0_5px_18px_rgba(18,77,86,0.15)]
+                    `
+                    : `
+                      border-[#124D56]/15
+                      bg-transparent
+                      text-[#124D56]/65
+                      hover:border-[#124D56]/35
+                      hover:bg-white
+                      hover:text-[#0B3C49]
+                    `
+                }
+              `}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
 
         {/* ==================================================
-            03 — FEATURED STORY
+            FEATURED STORY
         ================================================== */}
 
         {active === "All" && <FeaturedStory />}
 
         {/* ==================================================
-            04 — JOURNAL GRID
+            JOURNAL GRID
         ================================================== */}
 
         <div
@@ -1395,44 +996,26 @@ export default function BlogJournal() {
             lg:gap-y-12
           "
         >
-          {visiblePosts.map((post, index) => (
-            <Fragment key={post.number}>
-
-              {/* JOURNAL CARD */}
-
-              <JournalCard
-                post={post}
-                expanded={expandedPost === post.number}
-                onToggle={() =>
-                  handleCardToggle(post.number)
-                }
-              />
-
-              {/* ENQUIRY CARD */}
-
-              {index === 2 && <InlineEnquiryCard />}
-
-            </Fragment>
+          {visiblePosts.map((post) => (
+            <JournalCard
+              key={post.number}
+              post={post}
+              expanded={expandedPost === post.number}
+              onToggle={() => handleCardToggle(post.number)}
+            />
           ))}
         </div>
 
         {/* ==================================================
-            05 — LOAD MORE
+            LOAD MORE
         ================================================== */}
 
-        <div
-          className="
-            mt-20
-            text-center
-            md:mt-24
-          "
-        >
+        <div className="mt-20 text-center md:mt-24">
           <button
             type="button"
             className="
               group
               inline-flex
-              cursor-pointer
               items-center
               gap-3
               rounded-full
@@ -1451,6 +1034,7 @@ export default function BlogJournal() {
               hover:bg-[#124D56]
               hover:text-white
               hover:shadow-[0_8px_25px_rgba(18,77,86,0.15)]
+              cursor-pointer
             "
           >
             <span>Load more stories</span>
@@ -1468,7 +1052,7 @@ export default function BlogJournal() {
         </div>
 
         {/* ==================================================
-            06 — FOOTER LABEL
+            FOOTER LABEL
         ================================================== */}
 
         <div
@@ -1485,29 +1069,13 @@ export default function BlogJournal() {
             text-[#124D56]/25
           "
         >
-          <span
-            className="
-              text-[14px]
-              text-[#124D56]
-            "
-          >
+          <span className="text-[#124D56] text-[14px]">
             Times India Travels
           </span>
 
-          <span
-            className="
-              h-px
-              w-8
-              bg-[#124D56]/15
-            "
-          />
+          <span className="h-px w-8 bg-[#124D56]/15" />
 
-          <span
-            className="
-              text-[14px]
-              text-[#124D56]
-            "
-          >
+          <span className="text-[#124D56] text-[14px]">
             Stories from India
           </span>
         </div>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router";
+import AboutUs_Quotation_Form from "./AboutUs_Quotation_Form";
 
 const steps = [
   {
@@ -19,55 +19,173 @@ const steps = [
   },
 ];
 
-
-
 export default function AboutUs_Process() {
+  const [isQuoteOpen, setIsQuoteOpen] = useState(false);
 
   return (
-      <section className="bg-[#F2FAFB] py-24 px-6">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="font-['Inter'] text-[11px] font-semibold uppercase tracking-[0.28em] text-[#D9701F]">
+    <>
+      {/* =====================================================
+          HOW IT WORKS
+      ====================================================== */}
+
+      <section className="relative py-20 sm:py-24 bg-white overflow-hidden">
+        <div className="max-w-6xl mx-auto px-6">
+
+          {/* =================================================
+              SECTION HEADER
+          ================================================== */}
+
+          <div className="text-center mb-14">
+            <span
+              className="
+                font-['Inter']
+                text-[12px]
+                font-semibold
+                uppercase
+                tracking-[0.28em]
+                text-[#F58634]
+              "
+            >
               How It Works
             </span>
-            <h2 className="font-['Fraunces'] font-medium text-[#0B3C49] text-[clamp(1.75rem,3.5vw,2.75rem)] mt-4">
+
+            <h2
+              className="
+                font-['Fraunces']
+                font-medium
+                text-[#0B3C49]
+                text-[clamp(2rem,4vw,3rem)]
+                mt-4
+              "
+            >
               Getting Started Is Simple
             </h2>
+
             <div className="w-10 h-[2px] bg-[#F58634] mx-auto mt-6" />
           </div>
 
+          {/* =================================================
+              STEPS
+          ================================================== */}
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {steps.map((step) => (
-              <div key={step.number} className="text-center md:text-left">
-                <span className="font-['Fraunces'] text-5xl text-[#1EA5BE]/25 font-medium">
+              <div
+                key={step.number}
+                className="text-center md:text-left"
+              >
+                <span
+                  className="
+                    font-['Fraunces']
+                    text-5xl
+                    text-[#1EA5BE]/25
+                    font-medium
+                  "
+                >
                   {step.number}
                 </span>
-                <h3 className="font-['Fraunces'] font-medium text-xl text-[#0B3C49] mt-3">
+
+                <h3
+                  className="
+                    font-['Fraunces']
+                    font-medium
+                    text-xl
+                    text-[#0B3C49]
+                    mt-3
+                  "
+                >
                   {step.title}
                 </h3>
-                <p className="font-['Inter'] text-[#6D6D6D] text-[15px] leading-relaxed mt-3">
+
+                <p
+                  className="
+                    font-['Inter']
+                    text-[#6D6D6D]
+                    text-[15px]
+                    leading-relaxed
+                    mt-3
+                  "
+                >
                   {step.desc}
                 </p>
               </div>
             ))}
           </div>
 
-          {/* CTA sits right under the steps it describes, instead of
-              being disconnected elsewhere on the page. */}
+          {/* =================================================
+              CTA
+          ================================================== */}
+
           <div className="text-center mt-14">
-            <Link
-              to="/#quatation"
-              className="font-['Inter'] group inline-flex items-center gap-3 bg-[#F58634] hover:bg-[#D9701F] text-white text-sm font-semibold tracking-wide rounded-full pl-6 pr-2 py-2 shadow-[0_10px_25px_-10px_rgba(245,134,52,0.6)] hover:shadow-[0_12px_28px_-8px_rgba(245,134,52,0.75)] transition-all duration-300"
+            <button
+              type="button"
+              onClick={() => setIsQuoteOpen(true)}
+              className="
+                font-['Inter']
+                group
+                inline-flex
+                items-center
+                gap-3
+                bg-[#F58634]
+                hover:bg-[#D9701F]
+                text-white
+                text-sm
+                font-semibold
+                tracking-wide
+                rounded-full
+                pl-6
+                pr-2
+                py-2
+                shadow-[0_10px_25px_-10px_rgba(245,134,52,0.6)]
+                hover:shadow-[0_12px_28px_-8px_rgba(245,134,52,0.75)]
+                transition-all
+                duration-300
+                cursor-pointer
+              "
             >
               Start With a Free Quote
-              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-white/20 group-hover:bg-white/25 group-hover:translate-x-0.5 transition-all duration-300">
-                <svg viewBox="0 0 24 24" className="w-4 h-4 fill-none stroke-current" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+
+              <span
+                className="
+                  flex
+                  items-center
+                  justify-center
+                  w-8
+                  h-8
+                  rounded-full
+                  bg-white/20
+                  group-hover:bg-white/25
+                  group-hover:translate-x-0.5
+                  transition-all
+                  duration-300
+                "
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  className="w-4 h-4 fill-none stroke-current"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M9 5l7 7-7 7"
+                  />
                 </svg>
               </span>
-            </Link>
+            </button>
           </div>
         </div>
       </section>
+
+      {/* =====================================================
+          QUOTATION MODAL
+      ====================================================== */}
+
+      {isQuoteOpen && (
+        <AboutUs_Quotation_Form
+          onClose={() => setIsQuoteOpen(false)}
+        />
+      )}
+    </>
   );
 }

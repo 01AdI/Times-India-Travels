@@ -11,16 +11,16 @@ const contactInfo = {
   email: "tours@timesindiatravels.com",
 };
 
-// Primary site nav — mirrors the header. Pages beyond Home aren't built
-// yet, but the links are here now so nothing needs to change structurally
-// once About Us / Car Rental / Blog exist.
+// Primary site nav — matches the real routes defined in main.jsx exactly
+// (About_Us with underscore, CarRental with no separator, Tour capitalized —
+// URL paths are case-sensitive, so these must match the router precisely).
 const companyLinks = [
   { label: "Home", href: "/" },
-  { label: "About Us", href: "/about-us" },
-  { label: "Tour Packages", href: "/tour-packages" },
-  { label: "Car Rental", href: "/car-rental" },
-  { label: "Blog", href: "/blog" },
-  { label: "Contact Us", href: "/contact-us" },
+  { label: "About Us", href: "/About_Us" },
+  { label: "Tour Packages", href: "/Tour" },
+  { label: "Car Rental", href: "/CarRental" },
+  { label: "Blog", href: "/Blog" },
+  { label: "Contact Us", href: "/Contact-Us" },
 ];
 
 const footerColumns = [
@@ -36,31 +36,31 @@ const footerColumns = [
   {
     title: "Tour Packages",
     links: [
-      { label: "Golden Triangle Tours", href: "/tour-packages/golden-triangle-tours" },
-      { label: "Rajasthan Tours", href: "/tour-packages/rajasthan-tours" },
-      { label: "South India Tours", href: "/tour-packages/south-india-tours" },
-      { label: "India Wildlife Tours", href: "/tour-packages/india-wildlife-tours" },
-      { label: "North & West India Tour", href: "/tour-packages/north-west-india-tour" },
-      { label: "India & Nepal Tour", href: "/tour-packages/india-nepal-tour" },
-      { label: "Jammu & Kashmir Tour", href: "/tour-packages/jammu-kashmir-tour" },
+      { label: "Golden Triangle Tours", href: "/Tour/golden-triangle-tours" },
+      { label: "Rajasthan Tours", href: "/Tour/rajasthan-tours" },
+      { label: "South India Tours", href: "/Tour/south-india-tours" },
+      { label: "India Wildlife Tours", href: "/Tour/india-wildlife-tours" },
+      { label: "North & West India Tour", href: "/Tour/north-west-india-tour" },
+      { label: "India & Nepal Tour", href: "/Tour/india-nepal-tour" },
+      { label: "Jammu & Kashmir Tour", href: "/Tour/jammu-kashmir-tour" },
     ],
   },
 ];
 
 const bottomLinks = [
-  { label: "Testimonials", href: "/testimonials" },
+  { label: "Testimonials", href: "/Testimonials" },
   { label: "Terms & Conditions", href: "/terms-and-condition" },
-  { label: "Privacy Policy", href: "/privacy-policy" },
-  { label: "Refund Policy", href: "/refund-policy" },
-  { label: "Disclaimer", href: "/disclaimer" },
+  { label: "Privacy Policy", href: "/Privacy-Policy" },
+  { label: "Refund Policy", href: "/Refund-Policy" },
+  { label: "Disclaimer", href: "/Disclaimer" },
   { label: "Pay Online", href: "/pay-online" },
 ];
 
 const socialLinks = [
-  { label: "Facebook", href: "https://facebook.com", icon: "facebook" },
-  { label: "Twitter", href: "https://twitter.com", icon: "twitter" },
-  { label: "Instagram", href: "https://instagram.com", icon: "instagram" },
-  { label: "LinkedIn", href: "https://linkedin.com", icon: "linkedin" },
+  { label: "Facebook", href: "https://www.facebook.com/timesindiatravelsofficial", icon: "facebook" },
+  { label: "Twitter", href: "https://twitter.com/times_travels", icon: "twitter" },
+  { label: "Instagram", href: "https://www.instagram.com/timesindiatravels/", icon: "instagram" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/times-india-travels-1a92633b/", icon: "linkedin" },
 ];
 
 // ---------------------------------------------------------------------------
@@ -71,7 +71,7 @@ export default function Footer() {
   return (
     <>
       {/* Decorative skyline above the footer */}
-      <div className="relative w-full overflow-hidden bg-[#F2FAFB] leading-[0] pt-15">
+      <div className="relative w-full overflow-hidden bg-[#F2FAFB] leading-[0] pt-10">
         <img
           src="https://res.cloudinary.com/dgmsnixag/image/upload/v1786119995/india_skyline_teal_transparent_pplv6o.png"
           alt=""
