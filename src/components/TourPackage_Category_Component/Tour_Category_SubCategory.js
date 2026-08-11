@@ -1,5 +1,8 @@
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { Link } from "react-router";
+
+const MotionLink = motion(Link);
 
 export default function TourPackage_Category_SubCategory({subcategories}) {
   return (
@@ -17,11 +20,9 @@ export default function TourPackage_Category_SubCategory({subcategories}) {
 
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
           {subcategories.map((tour, index) => (
-            <motion.a
+            <MotionLink
               key={tour.id}
-              // Fixed to match the site's established route convention
-              // (lowercase, hyphenated) instead of /Tour/...
-              href={`/Tour/${tour.categorySlug}/${tour.id}`}
+              to={`/Tour/${tour.categorySlug}/${tour.id}`}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
@@ -58,7 +59,7 @@ export default function TourPackage_Category_SubCategory({subcategories}) {
                   </span>
                 </div>
               </div>
-            </motion.a>
+            </MotionLink>
           ))}
         </div>
       </div>
