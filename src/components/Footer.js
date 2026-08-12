@@ -1,4 +1,5 @@
 import { MapPin, Phone, Mail, ArrowRight } from "lucide-react";
+import { Link } from "react-router";
 
 // ---------------------------------------------------------------------------
 // 1. DATA
@@ -11,9 +12,6 @@ const contactInfo = {
   email: "tours@timesindiatravels.com",
 };
 
-// Primary site nav — matches the real routes defined in main.jsx exactly
-// (About_Us with underscore, CarRental with no separator, Tour capitalized —
-// URL paths are case-sensitive, so these must match the router precisely).
 const companyLinks = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/About_Us" },
@@ -70,7 +68,6 @@ const socialLinks = [
 export default function Footer() {
   return (
     <>
-      {/* Decorative skyline above the footer */}
       <div className="relative w-full overflow-hidden bg-[#F2FAFB] leading-[0] pt-10">
         <img
           src="https://res.cloudinary.com/dgmsnixag/image/upload/v1786119995/india_skyline_teal_transparent_pplv6o.png"
@@ -86,7 +83,6 @@ export default function Footer() {
       <footer className="bg-[#0f3b42] text-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 py-16 lg:py-20">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-x-10 gap-y-14">
-            {/* ---------------- BRAND + NEWSLETTER ---------------- */}
             <section className="lg:col-span-2">
               <p className="font-['Fraunces'] text-2xl tracking-wide text-white">
                 Times India Travels
@@ -128,7 +124,6 @@ export default function Footer() {
               </form>
             </section>
 
-            {/* ---------------- PRIMARY SITE NAV ---------------- */}
             <nav aria-labelledby="footer-company">
               <h2 id="footer-company" className="text-[11px] uppercase tracking-[0.2em] text-[#7BCBDA] mb-5">
                 Company
@@ -136,15 +131,14 @@ export default function Footer() {
               <ul className="space-y-3.5 text-sm">
                 {companyLinks.map((link) => (
                   <li key={link.label}>
-                    <a href={link.href} className="text-white/60 hover:text-white transition-colors">
+                    <Link to={link.href} className="text-white/60 hover:text-white transition-colors">
                       {link.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
             </nav>
 
-            {/* ---------------- LINK COLUMNS ---------------- */}
             {footerColumns.map((column) => (
               <nav key={column.title} aria-labelledby={`footer-${column.title}`}>
                 <h2
@@ -156,16 +150,15 @@ export default function Footer() {
                 <ul className="space-y-3.5 text-sm">
                   {column.links.map((link) => (
                     <li key={link.label}>
-                      <a href={link.href} className="text-white/60 hover:text-white transition-colors">
+                      <Link to={link.href} className="text-white/60 hover:text-white transition-colors">
                         {link.label}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
               </nav>
             ))}
 
-            {/* ---------------- CONTACT ---------------- */}
             <section aria-labelledby="footer-contact-heading">
               <h2 id="footer-contact-heading" className="text-[11px] uppercase tracking-[0.2em] text-[#7BCBDA] mb-5">
                 Get in Touch
@@ -177,7 +170,7 @@ export default function Footer() {
                   <span>{contactInfo.address}</span>
                 </p>
 
-                <a
+                
                   href={`tel:${contactInfo.phone.replace(/\s+/g, "")}`}
                   className="flex items-center gap-3 text-white/70 hover:text-white transition-colors"
                 >
@@ -185,7 +178,7 @@ export default function Footer() {
                   {contactInfo.phone}
                 </a>
 
-                <a
+                
                   href={`mailto:${contactInfo.email}`}
                   className="flex items-center gap-3 text-white/70 hover:text-white transition-colors"
                 >
@@ -197,7 +190,7 @@ export default function Footer() {
               <ul className="mt-8 flex gap-2.5">
                 {socialLinks.map(({ label, href, icon }) => (
                   <li key={label}>
-                    <a
+                    
                       href={href}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -234,7 +227,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* ---------------- BOTTOM BAR ---------------- */}
         <div className="border-t border-white/10">
           <div className="max-w-7xl mx-auto px-6 lg:px-10 py-6 flex flex-col-reverse md:flex-row items-center justify-between gap-4">
             <p className="text-xs text-white/40 text-center md:text-left">
@@ -245,9 +237,9 @@ export default function Footer() {
               <ul className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs text-white/50">
                 {bottomLinks.map((link) => (
                   <li key={link.label}>
-                    <a href={link.href} className="hover:text-white/80 transition-colors">
+                    <Link to={link.href} className="hover:text-white/80 transition-colors">
                       {link.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
