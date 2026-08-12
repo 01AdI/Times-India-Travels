@@ -1,8 +1,9 @@
 import { MapPin, Phone, Mail, ArrowRight } from "lucide-react";
 import { Link } from "react-router";
+import { tourCategories } from "../utils/TourPackage_data";
 
 // ---------------------------------------------------------------------------
-// 1. DATA
+// CONTACT INFO
 // ---------------------------------------------------------------------------
 
 const contactInfo = {
@@ -12,7 +13,10 @@ const contactInfo = {
   email: "tours@timesindiatravels.com",
 };
 
-// Primary site nav
+// ---------------------------------------------------------------------------
+// COMPANY LINKS
+// ---------------------------------------------------------------------------
+
 const companyLinks = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/About_Us" },
@@ -22,59 +26,99 @@ const companyLinks = [
   { label: "Contact Us", href: "/Contact-Us" },
 ];
 
+// ---------------------------------------------------------------------------
+// TOUR PACKAGE LINKS
+// Generated directly from tourCategories
+//
+// Object key = category slug
+// category.name = displayed name
+//
+// Example:
+// "golden-triangle-tours": {
+//   name: "Golden Triangle Tours"
+// }
+//
+// becomes:
+// {
+//   label: "Golden Triangle Tours",
+//   href: "/Tour/golden-triangle-tours"
+// }
+// ---------------------------------------------------------------------------
+
+const tourPackageLinks = Object.entries(tourCategories).map(
+  ([slug, category]) => ({
+    label: category.name,
+    href: `/Tour/${slug}`,
+  })
+);
+
+// ---------------------------------------------------------------------------
+// FOOTER COLUMNS
+// ---------------------------------------------------------------------------
+
 const footerColumns = [
   {
     title: "Explore",
     links: [
-      { label: "Wonders of India", href: "/wonders-of-india" },
-      { label: "Destinations", href: "/destinations" },
-      { label: "Fairs & Festivals", href: "/fair-and-festivals" },
-      { label: "Private Day Tours", href: "/private-day-tours" },
+      {
+        label: "Wonders of India",
+        href: "/wonders-of-india",
+      },
+      {
+        label: "Destinations",
+        href: "/destinations",
+      },
+      {
+        label: "Fairs & Festivals",
+        href: "/fair-and-festivals",
+      },
+      {
+        label: "Private Day Tours",
+        href: "/private-day-tours",
+      },
     ],
   },
+
   {
     title: "Tour Packages",
-    links: [
-      {
-        label: "Golden Triangle Tours",
-        href: "/Tour/golden-triangle-tours",
-      },
-      {
-        label: "Rajasthan Tours",
-        href: "/Tour/rajasthan-tours",
-      },
-      {
-        label: "South India Tours",
-        href: "/Tour/south-india-tours",
-      },
-      {
-        label: "India Wildlife Tours",
-        href: "/Tour/india-wildlife-tours",
-      },
-      {
-        label: "North & West India Tour",
-        href: "/Tour/north-west-india-tour",
-      },
-      {
-        label: "India & Nepal Tour",
-        href: "/Tour/india-nepal-tour",
-      },
-      {
-        label: "Jammu & Kashmir Tour",
-        href: "/Tour/jammu-kashmir-tour",
-      },
-    ],
+    links: tourPackageLinks,
   },
 ];
 
+// ---------------------------------------------------------------------------
+// BOTTOM LINKS
+// ---------------------------------------------------------------------------
+
 const bottomLinks = [
-  { label: "Testimonials", href: "/Testimonials" },
-  { label: "Terms & Conditions", href: "/terms-and-condition" },
-  { label: "Privacy Policy", href: "/Privacy-Policy" },
-  { label: "Refund Policy", href: "/Refund-Policy" },
-  { label: "Disclaimer", href: "/Disclaimer" },
-  { label: "Pay Online", href: "/pay-online" },
+  {
+    label: "Testimonials",
+    href: "/Testimonials",
+  },
+  {
+    label: "Terms & Conditions",
+    href: "/terms-and-condition",
+  },
+  {
+    label: "Privacy Policy",
+    href: "/Privacy-Policy",
+  },
+  {
+    label: "Refund Policy",
+    href: "/Refund-Policy",
+  },
+  {
+    label: "Disclaimer",
+    href: "/Disclaimer",
+  },
+  {
+    label: "Pay Online",
+    href: "/pay-online",
+  },
 ];
+
+// ---------------------------------------------------------------------------
+// SOCIAL LINKS
+// ---------------------------------------------------------------------------
 
 const socialLinks = [
   {
@@ -100,13 +144,16 @@ const socialLinks = [
 ];
 
 // ---------------------------------------------------------------------------
-// 2. COMPONENT
+// FOOTER COMPONENT
 // ---------------------------------------------------------------------------
 
 export default function Footer() {
   return (
     <>
-      {/* Decorative skyline above the footer */}
+      {/* ================================================================
+          DECORATIVE SKYLINE
+      ================================================================= */}
+
       <div className="relative w-full overflow-hidden bg-[#F2FAFB] leading-[0] pt-10">
         <img
           src="https://res.cloudinary.com/dgmsnixag/image/upload/v1786119995/india_skyline_teal_transparent_pplv6o.png"
@@ -119,11 +166,18 @@ export default function Footer() {
         />
       </div>
 
+      {/* ================================================================
+          FOOTER
+      ================================================================= */}
+
       <footer className="bg-[#0f3b42] text-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-10 py-16 lg:py-20">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-x-10 gap-y-14">
 
-            {/* ---------------- BRAND + NEWSLETTER ---------------- */}
+            {/* ==========================================================
+                BRAND + NEWSLETTER
+            =========================================================== */}
+
             <section className="lg:col-span-2">
               <p className="font-['Fraunces'] text-2xl tracking-wide text-white">
                 Times India Travels
@@ -134,9 +188,12 @@ export default function Footer() {
               </p>
 
               <p className="mt-6 text-sm leading-relaxed text-white/60 max-w-xs">
-                Hand-crafted journeys across India — from royal Rajasthan to the
-                backwaters of the South — planned with care, guided with pride.
+                Hand-crafted journeys across India — from royal Rajasthan to
+                the backwaters of the South — planned with care, guided with
+                pride.
               </p>
+
+              {/* Newsletter */}
 
               <form
                 onSubmit={(e) => e.preventDefault()}
@@ -172,7 +229,10 @@ export default function Footer() {
               </form>
             </section>
 
-            {/* ---------------- PRIMARY SITE NAV ---------------- */}
+            {/* ==========================================================
+                COMPANY
+            =========================================================== */}
+
             <nav aria-labelledby="footer-company">
               <h2
                 id="footer-company"
@@ -195,7 +255,10 @@ export default function Footer() {
               </ul>
             </nav>
 
-            {/* ---------------- LINK COLUMNS ---------------- */}
+            {/* ==========================================================
+                EXPLORE + TOUR PACKAGE COLUMNS
+            =========================================================== */}
+
             {footerColumns.map((column) => (
               <nav
                 key={column.title}
@@ -223,7 +286,10 @@ export default function Footer() {
               </nav>
             ))}
 
-            {/* ---------------- CONTACT ---------------- */}
+            {/* ==========================================================
+                CONTACT
+            =========================================================== */}
+
             <section aria-labelledby="footer-contact-heading">
               <h2
                 id="footer-contact-heading"
@@ -232,9 +298,9 @@ export default function Footer() {
                 Get in Touch
               </h2>
 
-              {/* IMPORTANT: address is only a semantic container.
-                  Links inside it are separate elements. */}
               <address className="not-italic space-y-4 text-sm">
+                {/* Address */}
+
                 <p className="flex gap-3 text-white/70">
                   <MapPin
                     className="w-4 h-4 shrink-0 mt-0.5 text-white/40"
@@ -245,6 +311,7 @@ export default function Footer() {
                 </p>
 
                 {/* Phone */}
+
                 <a
                   href={`tel:${contactInfo.phone.replace(/\s+/g, "")}`}
                   className="flex items-center gap-3 text-white/70 hover:text-white transition-colors"
@@ -258,6 +325,7 @@ export default function Footer() {
                 </a>
 
                 {/* Email */}
+
                 <a
                   href={`mailto:${contactInfo.email}`}
                   className="flex items-center gap-3 text-white/70 hover:text-white transition-colors"
@@ -271,7 +339,10 @@ export default function Footer() {
                 </a>
               </address>
 
-              {/* ---------------- SOCIAL LINKS ---------------- */}
+              {/* ========================================================
+                  SOCIAL LINKS
+              ========================================================= */}
+
               <ul className="mt-8 flex gap-2.5">
                 {socialLinks.map(({ label, href, icon }) => (
                   <li key={label}>
@@ -282,6 +353,8 @@ export default function Footer() {
                       aria-label={`Follow us on ${label}`}
                       className="w-9 h-9 rounded-full border border-white/15 flex items-center justify-center text-white/60 hover:text-white hover:border-white/40 transition-colors"
                     >
+                      {/* Facebook */}
+
                       {icon === "facebook" && (
                         <svg
                           viewBox="0 0 24 24"
@@ -292,6 +365,8 @@ export default function Footer() {
                         </svg>
                       )}
 
+                      {/* Twitter */}
+
                       {icon === "twitter" && (
                         <svg
                           viewBox="0 0 24 24"
@@ -301,6 +376,8 @@ export default function Footer() {
                           <path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.4L2.9 2h6.4l4.4 5.8L18.9 2zm-1.1 17.8h1.7L8.3 4.1H6.5l11.3 15.7z" />
                         </svg>
                       )}
+
+                      {/* Instagram */}
 
                       {icon === "instagram" && (
                         <svg
@@ -316,7 +393,9 @@ export default function Footer() {
                             height="18"
                             rx="5"
                           />
+
                           <circle cx="12" cy="12" r="4" />
+
                           <circle
                             cx="17.5"
                             cy="6.5"
@@ -326,6 +405,8 @@ export default function Footer() {
                           />
                         </svg>
                       )}
+
+                      {/* LinkedIn */}
 
                       {icon === "linkedin" && (
                         <svg
@@ -344,11 +425,16 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* ---------------- BOTTOM BAR ---------------- */}
+        {/* ================================================================
+            BOTTOM BAR
+        ================================================================= */}
+
         <div className="border-t border-white/10">
           <div className="max-w-7xl mx-auto px-6 lg:px-10 py-6 flex flex-col-reverse md:flex-row items-center justify-between gap-4">
+
             <p className="text-xs text-white/40 text-center md:text-left">
-              © {new Date().getFullYear()} Times India Travels. All rights reserved.
+              © {new Date().getFullYear()} Times India Travels. All rights
+              reserved.
             </p>
 
             <nav aria-label="Legal">
