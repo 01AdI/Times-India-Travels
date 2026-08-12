@@ -193,7 +193,7 @@ export default function TourPackages_Grid() {
 
   return (
     <MotionConfig reducedMotion="user">
-      <section className="relative">
+      <section className="relative overflow-hidden bg-[#F2FAFB] py-20 sm:py-24 md:py-28">
         <div className="relative mx-auto max-w-[1500px] px-5 sm:px-8 lg:px-12">
 
           {/* ================================================================
