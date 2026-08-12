@@ -46,9 +46,9 @@ const companyLinks = [
 // ---------------------------------------------------------------------------
 
 const tourPackageLinks = Object.entries(tourCategories).map(
-  ([slug, category]) => ({
+  ([id, category]) => ({
     label: category.name,
-    href: `/Tour/${slug}`,
+    href: `/Tour/${id}`,
   })
 );
 
