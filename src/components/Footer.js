@@ -1,10 +1,6 @@
 import { MapPin, Phone, Mail, ArrowRight } from "lucide-react";
 import { Link } from "react-router";
 
-// ---------------------------------------------------------------------------
-// 1. DATA
-// ---------------------------------------------------------------------------
-
 const contactInfo = {
   address:
     "C2/106, Flat No S2, 2nd Floor, Sneh Villa, Chitrakoot Scheme, Jaipur - 302021, Rajasthan",
@@ -60,10 +56,6 @@ const socialLinks = [
   { label: "Instagram", href: "https://www.instagram.com/timesindiatravels/", icon: "instagram" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/times-india-travels-1a92633b/", icon: "linkedin" },
 ];
-
-// ---------------------------------------------------------------------------
-// 2. COMPONENT
-// ---------------------------------------------------------------------------
 
 export default function Footer() {
   return (
