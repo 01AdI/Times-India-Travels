@@ -7,10 +7,11 @@ import Home_WhyChooseUs_2 from "./components/home_components/Home_WhyChooseUs_2"
 import Home_ClientReview from "./components/home_components/Home_ClientReview";
 import Home_ClientReview_2 from "./components/home_components/Home_ClientReview_2";
 import Home_Client_Testimonials from "./components/home_components/Home_Client_Testimonial";
-import Home_Quote from "./components/home_components/Home_Quote";
 import Home_Travel_Grid from "./components/home_components/Home_Travel_Grid";
 import Home_Qautation_form from "./components/home_components/Home_Qautation_form";
 import Home_Qautation_form_2 from "./components/home_components/Home_Qautation_form_2";
+import DestinationSection from "./components/home_components/DestinationSection";
+import Affiliations from "./components/home_components/Affiliations";
 
 import { useLocation } from "react-router";
 import { useEffect } from "react";
@@ -42,7 +43,8 @@ export default function Homes(){
             <Home_WhyChooseUs_2></Home_WhyChooseUs_2>
             <Home_Client_Testimonials></Home_Client_Testimonials>
             <Home_ClientReview></Home_ClientReview>
-            <Home_Quote></Home_Quote>
+            <DestinationSection></DestinationSection>
+            <Affiliations></Affiliations>
             <Home_Travel_Grid></Home_Travel_Grid>
             <Home_Qautation_form></Home_Qautation_form>
         </>
