@@ -7,6 +7,10 @@ import TourPackage_Sub_Highlights from "./components/TourPackage_Cat_Sub_Compone
 import TourPackage_Sub_CTA from "./components/TourPackage_Cat_Sub_Components/TourPackage_Sub_CTA";
 import TourPackage_Sub_AtAGlance from "./components/TourPackage_Cat_Sub_Components/TourPackage_Sub_AtAGlance";
 import TourPackage_Sub_RelatedTours from "./components/TourPackage_Cat_Sub_Components/TourPackage_Sub_RelatedTours";
+import TourPackage_Sub_Itinerary from "./components/TourPackage_Cat_Sub_Components/TourPackage_Sub_Itinerary";
+import TourPackage_Sub_Itinerary_2 from "./components/TourPackage_Cat_Sub_Components/TourPackage_Sub_Itineray_2";
+import TourPackage_Sub_Itinerary_3 from "./components/TourPackage_Cat_Sub_Components/TourPackage_Sub_Itineray_3";
+import TourPackage_Sub_Itinerary_4 from "./components/TourPackage_Cat_Sub_Components/TourPackage_Sub_Itinerary_4";
 
 export default function TourPackage_cat_sub() {
   const { sub } = useParams();
@@ -40,6 +44,10 @@ export default function TourPackage_cat_sub() {
         <TourPackage_Sub_Hero tour={tour}></TourPackage_Sub_Hero>
         <TourPackage_Sub_Intro tour={tour}></TourPackage_Sub_Intro>
         {/* <TourPackage_Sub_AtAGlance tour={tour}></TourPackage_Sub_AtAGlance> */}
+        {/* <TourPackage_Sub_Itinerary tour={tour}></TourPackage_Sub_Itinerary> */}
+        {/* <TourPackage_Sub_Itinerary_2 tour={tour}></TourPackage_Sub_Itinerary_2> */}
+        {/* <TourPackage_Sub_Itinerary_3 tour={tour}></TourPackage_Sub_Itinerary_3> */}
+        <TourPackage_Sub_Itinerary_4 tour={tour}></TourPackage_Sub_Itinerary_4>
         {/* <TourPackage_Sub_Highlights tour={tour}></TourPackage_Sub_Highlights> */}
         <TourPackage_Sub_CTA tour={tour}></TourPackage_Sub_CTA>
         <TourPackage_Sub_RelatedTours tour={tour}></TourPackage_Sub_RelatedTours>
